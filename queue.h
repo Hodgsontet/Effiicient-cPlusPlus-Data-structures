@@ -1,4 +1,7 @@
+#ifndef QUEUE_H
+#define QUEUE_H
 #include<iostream>
+#include<cassert>
 
 template<typename T>
 class queue
@@ -8,13 +11,21 @@ public:
 	void pop();
 	void push(T entry);
 	int size();
-	int front();
-	int back();
+	
+	T front();
+        T back();
+	static const int capacity = 7;
 
 private:
-	int size;
+	int used;
 	int first;
 	int last;
-	int capacity = 7;
-	T ar[capacity];
-}
+	
+	T* ar;
+};
+
+
+#include "queue.cpp" 
+
+
+#endif
